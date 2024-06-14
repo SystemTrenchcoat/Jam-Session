@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Dev tools to make development easier and more fun
+/// Always placec on Rhythm Visualizer
+/// </summary>
 public class DevTools : MonoBehaviour
 {
     public Dictionary<string, Dictionary<float, char>> songbook;
