@@ -75,9 +75,9 @@ public class DevTools : MonoBehaviour
 
     void StopSettingNotes()
     {
-        activeSong = null;
         audio.Stop();
         Debug.Log($"Stop setting notes: {activeSong}");
+        activeSong = null;
     }
 
     void PlaySong(string song)
