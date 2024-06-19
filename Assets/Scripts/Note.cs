@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
 /// Holds note information
 /// </summary>
-public class Note : MonoBehaviour
+public class Note
 {
     public static char note1 = 'E';
     public static char note2 = 'A';
@@ -23,6 +24,33 @@ public class Note : MonoBehaviour
     {
         this.note = note;
         this.time = time;
+    }
+
+    public static Note findLastNote(List<Note> notes, char note)
+    {
+        Note n = null;
+
+        for (int i = notes.Count - 1; i >= 0; i--)
+        {
+            if (notes[i].note == note)
+            {
+                n = notes[i];
+                Debug.Log(n);
+                break;
+            }
+        }
+
+        return n;
+    }
+
+    public override string ToString()
+    {
+        return note + "," + length + "," + time;
+    }
+
+    public void setLength(float length)
+    {
+         this.length = length;
     }
     // Start is called before the first frame update
     void Start()

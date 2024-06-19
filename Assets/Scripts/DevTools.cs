@@ -9,51 +9,91 @@ using System.IO;
 /// </summary>
 public class DevTools : MonoBehaviour
 {
-    public Dictionary<string, Dictionary<float, char>> songbook;
-    public Dictionary<float, char> activeSong;
+    public Dictionary<string, List<Note>> songbook;
+    public List<Note> activeSong;
     public string songName;
     public AudioSource audio;
     public float timer;
+    public float timer1;
+    public float timer2;
+    public float timer3;
 
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        songbook = new Dictionary<string, Dictionary<float, char>>();
+        songbook = new Dictionary<string, List<Note>>();
         timer = 0;
+        timer1 = 0;
+        timer2 = 0;
+        timer3 = 0;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
         //Make songs to be played
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.F3))
+        if (/*Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && */Input.GetKeyDown(KeyCode.F3))
         {
             SetSongNotes("Song " + songbook.Count + 1);
         }
 
         //Note 1
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(Note.note1key))
         {
-            activeSong[timer + Time.deltaTime] = 'E';
+            activeSong.Add(new Note(Note.note1, timer + Time.deltaTime));
+        }
+        if (Input.GetKeyUp(Note.note1key))
+        {
+            Note.findLastNote(activeSong, Note.note1).setLength(timer1 + Time.deltaTime);
         }
 
         //Note 2
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(Note.note2key))
         {
-            activeSong[timer + Time.deltaTime] = 'A';
+            activeSong.Add(new Note(Note.note2, timer + Time.deltaTime));
+        }
+        if (Input.GetKeyUp(Note.note2key))
+        {
+            Note.findLastNote(activeSong, Note.note2).setLength(timer2 + Time.deltaTime);
         }
 
         //Note 3
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(Note.note3key))
         {
-            activeSong[timer + Time.deltaTime] = '_';
+            activeSong.Add(new Note(Note.note3, timer + Time.deltaTime));
+        }
+        if (Input.GetKeyUp(Note.note3key))
+        {
+            Note.findLastNote(activeSong, Note.note3).setLength(timer3 + Time.deltaTime);
         }
 
         //Stop recording input
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.F4))
+        if (/*Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && */Input.GetKeyDown(KeyCode.F4))
         {
             StopSettingNotes();
+        }
+    }
+
+    //Called every framrate frame
+    void FixedUpdate()
+    {
+        //Note 1
+        if (Input.GetKey(Note.note1key))
+        {
+            timer1 += Time.deltaTime;
+        }
+
+        //Note 2
+        if (Input.GetKey(Note.note2key))
+        {
+            timer2 += Time.deltaTime;
+        }
+
+        //Note 3
+        if (Input.GetKey(Note.note3key))
+        {
+            timer3 += Time.deltaTime;
         }
 
         timer += Time.deltaTime;
@@ -66,7 +106,7 @@ public class DevTools : MonoBehaviour
     /// <param name="notes">When each note should be played</param>
     void SetSongNotes(string song)
     {
-        Dictionary<float, char> notes = new Dictionary<float, char>();
+        List<Note> notes = new List<Note>();
 
         songbook[song] = notes;
         songName = song;
@@ -90,11 +130,14 @@ public class DevTools : MonoBehaviour
         string path = "Assets/Text/" + songName + ".txt";
         StreamWriter sw = new StreamWriter(path);
 
-        sw.WriteLine(activeSong.Values);
+        foreach (Note n in activeSong)
+        {
+            sw.WriteLine(n.ToString());
+        }
 
         sw.Close();
 
-        Debug.Log(sw.ToString());
+        Debug.Log(activeSong.Count);
         Debug.Log(path);
     }
 
