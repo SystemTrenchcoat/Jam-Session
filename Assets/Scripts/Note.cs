@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Holds note information
 /// </summary>
-public class Note
+public class Note : MonoBehaviour
 {
     public static char note1 = 'E';
     public static char note2 = 'A';
@@ -16,14 +16,33 @@ public class Note
     public static KeyCode note2key = KeyCode.A;
     public static KeyCode note3key = KeyCode.Space;
 
+    public GameObject shortNotePrefab;
+    public GameObject longNotePrefab;
+    public GameObject duoNotePrefab;
+
     public char note;
     public float length;
     public float time;
+
+    public GameObject prefab;
 
     public Note(char note, float time)
     {
         this.note = note;
         this.time = time;
+    }
+
+    /// <summary>
+    /// Creates a new note
+    /// </summary>
+    /// <param name="info">Line from txt file</param>
+    public Note(string info)
+    {
+        string[] lines = info.Split(',');
+
+        note = lines[0][0];
+        length = float.Parse(lines[1]);
+        time = float.Parse(lines[2]);
     }
 
     public static Note findLastNote(List<Note> notes, char note)
@@ -50,7 +69,33 @@ public class Note
 
     public void setLength(float length)
     {
-         this.length = length;
+       this.length = length;
+    }
+
+    public void setPrefab()
+    {
+        if (length <= 1.2f)
+        {
+            prefab = shortNotePrefab;
+        }
+        else
+        {
+            prefab = longNotePrefab;
+        }
+
+        if (note == note1)
+        {
+            prefab.transform.Rotate(0, 0, -30);
+        }
+        else if (note == note2)
+        {
+            prefab.transform.Rotate(0, 0, 0);
+        }
+        else if (note == note3)
+        {
+            prefab.transform.Rotate(0, 0, 30);
+        }
+        //prefab.gameObject.
     }
     // Start is called before the first frame update
     void Start()

@@ -35,7 +35,7 @@ public class DevTools : MonoBehaviour
         //Make songs to be played
         if (/*Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && */Input.GetKeyDown(KeyCode.F3))
         {
-            SetSongNotes("Song " + songbook.Count + 1);
+            SetSongNotes(songName + " " + (songbook.Count + 1));
         }
 
         //Note 1
@@ -109,8 +109,8 @@ public class DevTools : MonoBehaviour
         List<Note> notes = new List<Note>();
 
         songbook[song] = notes;
-        songName = song;
         activeSong = notes;
+        songName = song;
         timer = 0;
         audio.Play();
         Debug.Log("Recording...");
@@ -122,7 +122,7 @@ public class DevTools : MonoBehaviour
         audio.Stop();
         Debug.Log($"Stop setting notes: {activeSong}");
         activeSong = null;
-        songName = null;
+        songName = songName.Remove(songName.LastIndexOf(' '));
     }
 
     void WriteSongText()
