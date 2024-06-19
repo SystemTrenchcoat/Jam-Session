@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 /// <summary>
 /// Dev tools to make development easier and more fun
@@ -10,6 +11,7 @@ public class DevTools : MonoBehaviour
 {
     public Dictionary<string, Dictionary<float, char>> songbook;
     public Dictionary<float, char> activeSong;
+    public string songName;
     public AudioSource audio;
     public float timer;
 
@@ -25,7 +27,7 @@ public class DevTools : MonoBehaviour
     void FixedUpdate()
     {
         //Make songs to be played
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.F3))
         {
             SetSongNotes("Song " + songbook.Count + 1);
         }
@@ -49,7 +51,7 @@ public class DevTools : MonoBehaviour
         }
 
         //Stop recording input
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.F4))
         {
             StopSettingNotes();
         }
@@ -67,6 +69,7 @@ public class DevTools : MonoBehaviour
         Dictionary<float, char> notes = new Dictionary<float, char>();
 
         songbook[song] = notes;
+        songName = song;
         activeSong = notes;
         timer = 0;
         audio.Play();
@@ -75,9 +78,24 @@ public class DevTools : MonoBehaviour
 
     void StopSettingNotes()
     {
+        WriteSongText();
         audio.Stop();
         Debug.Log($"Stop setting notes: {activeSong}");
         activeSong = null;
+        songName = null;
+    }
+
+    void WriteSongText()
+    {
+        string path = "Assets/Text/" + songName + ".txt";
+        StreamWriter sw = new StreamWriter(path);
+
+        sw.WriteLine(activeSong.Values);
+
+        sw.Close();
+
+        Debug.Log(sw.ToString());
+        Debug.Log(path);
     }
 
     void PlaySong(string song)
