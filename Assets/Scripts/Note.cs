@@ -12,9 +12,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 /// </summary>
 public class Note : MonoBehaviour
 {
-    public static Vector2 track1 = new Vector2(-1f, math.sqrt(80) / 10000000);
+    public static Vector2 track1 = new Vector2(-1f, 0);//math.sqrt(80) / 10000000);
     public static Vector2 track2 = new Vector2(-1f, 0);
-    public static Vector2 track3 = new Vector2(-math.sqrt(3) / 2, -.45f);//-.5f, -math.sqrt(3) / 2);
+    public static Vector2 track3 = new Vector2(-1f, 0); //math.sqrt(3) / 2, -.45f);//-.5f, -math.sqrt(3) / 2);
 
     public static char note1 = 'E';
     public static char note2 = 'A';
@@ -110,14 +110,20 @@ public class Note : MonoBehaviour
         if (note == note1)
         {
             track = track1;
+            prefab.transform.Rotate(0, 0, -28);
+            UnityEngine.Debug.Log("Track 1");
         }
         else if (note == note2)
         {
             track = track2;
+            prefab.transform.Rotate(0, 0, 0);
+            UnityEngine.Debug.Log("Track 2");
         }
         else if (note == note3)
         {
             track = track3;
+            prefab.transform.Rotate(0, 0, 28);
+            UnityEngine.Debug.Log("Track 3");
         }
     }
 

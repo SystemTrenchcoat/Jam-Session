@@ -136,6 +136,6 @@ MonoBehaviour:
   note: 65
   length: 6.783011
   time: 33.9435
-  speed: 0.004
+  speed: 0.008
   track: {x: 0, y: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 910214986207861476}

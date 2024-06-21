@@ -17,7 +17,7 @@ public class Rhythm : MonoBehaviour
     public AudioSource audio;
     public List<GameObject> song;
     public float delay;
-    public float timer = 0.04f;
+    public float timer = 0.06f;
     public int noteCount = 0;
     public void ImportSong(string path)
     {
@@ -40,7 +40,9 @@ public class Rhythm : MonoBehaviour
                 }
 
                 note.GetComponent<Note>().GenerateNote(text);
-                song.Add(note);
+                song.Add(GameObject.Instantiate(note));
+                note.GetComponent<Note>().prefab = note;
+                song[song.Count - 1].SetActive(false);
                 Debug.Log(note.GetComponent<Note>().ToString() + " " + song.Count);
             }
             Debug.Log(text);
@@ -67,13 +69,13 @@ public class Rhythm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (timer >= delay + song[noteCount].GetComponent<Note>().time)
+        if (noteCount < song.Count && timer >= delay + song[noteCount].GetComponent<Note>().time)
         {
             if (noteCount == 0)
             {
                 audio.Play();
             }
-            Instantiate(song[noteCount]);
+            song[noteCount].SetActive(true);
             Debug.Log(song[noteCount].GetComponent<Note>().note + " " + song[noteCount].GetComponent<Note>().time);
             noteCount++;
         }
