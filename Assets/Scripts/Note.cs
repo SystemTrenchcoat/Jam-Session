@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 /// <summary>
 /// Holds note information
 /// </summary>
 public class Note : MonoBehaviour
 {
+    public static Vector2 track1 = new Vector2(-1f, math.sqrt(80) / 10000000);
+    public static Vector2 track2 = new Vector2(-1f, 0);
+    public static Vector2 track3 = new Vector2(-math.sqrt(3) / 2, -.45f);//-.5f, -math.sqrt(3) / 2);
+
     public static char note1 = 'E';
     public static char note2 = 'A';
     public static char note3 = '_';
@@ -16,13 +24,11 @@ public class Note : MonoBehaviour
     public static KeyCode note2key = KeyCode.A;
     public static KeyCode note3key = KeyCode.Space;
 
-    public GameObject shortNotePrefab;
-    public GameObject longNotePrefab;
-    public GameObject duoNotePrefab;
-
     public char note;
     public float length;
     public float time;
+    public float speed = .004f;
+    public Vector2 track;
 
     public GameObject prefab;
 
@@ -36,7 +42,7 @@ public class Note : MonoBehaviour
     /// Creates a new note
     /// </summary>
     /// <param name="info">Line from txt file</param>
-    public Note(string info)
+    public void GenerateNote(string info)
     {
         string[] lines = info.Split(',');
 
@@ -54,7 +60,6 @@ public class Note : MonoBehaviour
             if (notes[i].note == note)
             {
                 n = notes[i];
-                Debug.Log(n);
                 break;
             }
         }
@@ -69,43 +74,57 @@ public class Note : MonoBehaviour
 
     public void setLength(float length)
     {
-       this.length = length;
+        this.length = length;
+        setPrefab();
+        
     }
 
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
     public void setPrefab()
     {
-        if (length <= 1.2f)
-        {
-            prefab = shortNotePrefab;
-        }
-        else
-        {
-            prefab = longNotePrefab;
-        }
-
         if (note == note1)
         {
             prefab.transform.Rotate(0, 0, -30);
+            track = track1;
         }
         else if (note == note2)
         {
             prefab.transform.Rotate(0, 0, 0);
+            track = track2;
         }
         else if (note == note3)
         {
             prefab.transform.Rotate(0, 0, 30);
+            track = track3;
         }
+        UnityEngine.Debug.Log(prefab.name);
         //prefab.gameObject.
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (note == note1)
+        {
+            track = track1;
+        }
+        else if (note == note2)
+        {
+            track = track2;
+        }
+        else if (note == note3)
+        {
+            track = track3;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(speed * track);
+        //UnityEngine.Debug.Log(speed * track);
     }
 }

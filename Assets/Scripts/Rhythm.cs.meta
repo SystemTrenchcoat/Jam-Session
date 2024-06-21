@@ -3,7 +3,11 @@ guid: d374e7309ef4dc240bbbe5a77552d0e8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shortNotePrefab: {fileID: 1123854528956871185, guid: d55e6f2f5b2d4204eb2f58edec7a134b, type: 3}
+  - longNotePrefab: {fileID: 910214986207861476, guid: 9958de69b4ccb78439b392eb97aab6ed, type: 3}
+  - duoNotePrefab: {fileID: 2156601389226074687, guid: d4cd593e873a98c4b88e05b8182a6626, type: 3}
+  - audio: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-guid: 03a61ffae0377e44ba229f484aa3c9a7
+guid: e58796c4930da9d4fb714562a8bf6c1a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - shortNotePrefab: {fileID: 1603851209167076537, guid: d55e6f2f5b2d4204eb2f58edec7a134b, type: 3}
-  - longNotePrefab: {instanceID: 0}
-  - duoNotePrefab: {instanceID: 0}
-  - prefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
