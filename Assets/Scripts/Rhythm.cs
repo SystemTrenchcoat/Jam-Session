@@ -57,7 +57,7 @@ public class Rhythm : MonoBehaviour
         audio = GetComponent<AudioSource>();
         song = new List<GameObject>();
         ImportSong("Assets/Text/Reggae.txt");
-        delay = 2;
+        //delay = 2;
         Debug.Log(song.Count);
     }
 
@@ -69,9 +69,9 @@ public class Rhythm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (noteCount < song.Count && timer >= delay + song[noteCount].GetComponent<Note>().time)
+        if (noteCount < song.Count && timer >= song[noteCount].GetComponent<Note>().time)
         {
-            if (noteCount == 0)
+            if (timer >= delay + song[0].GetComponent<Note>().time && !audio.isPlaying)
             {
                 audio.Play();
             }
