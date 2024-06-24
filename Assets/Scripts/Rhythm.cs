@@ -45,7 +45,7 @@ public class Rhythm : MonoBehaviour
                     note = longNotePrefab;
                 }
 
-                note.GetComponent<Note>().GenerateNote(text, bpm);
+                note.GetComponent<Note>().GenerateNote(text);//, 1);//bpm);
                 song.Add(GameObject.Instantiate(note));
                 note.GetComponent<Note>().prefab = note;
                 song[song.Count - 1].SetActive(false);

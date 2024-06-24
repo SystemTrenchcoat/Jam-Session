@@ -145,7 +145,7 @@ MonoBehaviour:
   time: 0
   speed: 0.01
   track: {x: 0, y: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 2156601389226074687, guid: d4cd593e873a98c4b88e05b8182a6626, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: note
       value: 65
       objectReference: {fileID: 0}
+    - target: {fileID: 922507251772006788, guid: d55e6f2f5b2d4204eb2f58edec7a134b, type: 3}
+      propertyPath: speed
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1123854528956871185, guid: d55e6f2f5b2d4204eb2f58edec7a134b, type: 3}
       propertyPath: m_Name
       value: Ring Note
@@ -778,6 +782,10 @@ PrefabInstance:
     - target: {fileID: 4323000467409331880, guid: 9958de69b4ccb78439b392eb97aab6ed, type: 3}
       propertyPath: note
       value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323000467409331880, guid: 9958de69b4ccb78439b392eb97aab6ed, type: 3}
+      propertyPath: speed
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
