@@ -23,11 +23,16 @@ public class Rhythm : MonoBehaviour
     {
         StreamReader sr = new StreamReader(path);
         string text;
+        int bpm = 60;
 
         do
         {
             text = sr.ReadLine();
-            if (text != null)
+            if (int.TryParse(text, out int t))
+            {
+                bpm = t;
+            }
+            else if (text != null)
             {
                 GameObject note;
                 if (float.Parse(text.Split(',')[1]) <= 1.2f)
@@ -39,7 +44,8 @@ public class Rhythm : MonoBehaviour
                     note = longNotePrefab;
                 }
 
-                note.GetComponent<Note>().GenerateNote(text);
+                note.GetComponent<Note>().GenerateNote(text, bpm);
+
                 song.Add(GameObject.Instantiate(note));
                 note.GetComponent<Note>().prefab = note;
                 song[song.Count - 1].SetActive(false);

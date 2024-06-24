@@ -385,7 +385,7 @@ MonoBehaviour:
   duoNotePrefab: {fileID: 2156601389226074687, guid: d4cd593e873a98c4b88e05b8182a6626, type: 3}
   audio: {fileID: 0}
   song: []
-  delay: 0
+  delay: 1
   timer: 0
   noteCount: 0
 --- !u!114 &663517723

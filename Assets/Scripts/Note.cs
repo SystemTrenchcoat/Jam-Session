@@ -42,7 +42,7 @@ public class Note : MonoBehaviour
     /// Creates a new note
     /// </summary>
     /// <param name="info">Line from txt file</param>
-    public void GenerateNote(string info)
+    public void GenerateNote(string info, int bpm)
     {
         string[] lines = info.Split(',');
 
