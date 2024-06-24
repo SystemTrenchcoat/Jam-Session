@@ -31,6 +31,7 @@ public class Rhythm : MonoBehaviour
             if (int.TryParse(text, out int t))
             {
                 bpm = t;
+                Debug.Log((float)(bpm / 144));
             }
             else if (text != null)
             {
@@ -45,7 +46,6 @@ public class Rhythm : MonoBehaviour
                 }
 
                 note.GetComponent<Note>().GenerateNote(text, bpm);
-
                 song.Add(GameObject.Instantiate(note));
                 note.GetComponent<Note>().prefab = note;
                 song[song.Count - 1].SetActive(false);

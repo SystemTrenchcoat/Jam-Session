@@ -49,6 +49,8 @@ public class Note : MonoBehaviour
         note = lines[0][0];
         length = float.Parse(lines[1]);
         time = float.Parse(lines[2]);
+        speed = (float)(bpm / 360);
+        UnityEngine.Debug.Log(speed);
     }
 
     public static Note findLastNote(List<Note> notes, char note)
