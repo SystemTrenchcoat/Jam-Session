@@ -24,6 +24,8 @@ public class Note : MonoBehaviour
     public static KeyCode note2key = KeyCode.A;
     public static KeyCode note3key = KeyCode.Space;
 
+    public int rotation = 26;
+
     public char note;
     public float length;
     public float time;
@@ -78,7 +80,6 @@ public class Note : MonoBehaviour
     {
         this.length = length;
         setPrefab();
-        
     }
 
     public void setSpeed(float speed)
@@ -89,7 +90,7 @@ public class Note : MonoBehaviour
     {
         if (note == note1)
         {
-            prefab.transform.Rotate(0, 0, -30);
+            prefab.transform.Rotate(0, 0, -rotation);
             track = track1;
         }
         else if (note == note2)
@@ -99,7 +100,7 @@ public class Note : MonoBehaviour
         }
         else if (note == note3)
         {
-            prefab.transform.Rotate(0, 0, 30);
+            prefab.transform.Rotate(0, 0, rotation);
             track = track3;
         }
         UnityEngine.Debug.Log(prefab.name);
@@ -112,7 +113,7 @@ public class Note : MonoBehaviour
         if (note == note1)
         {
             track = track1;
-            prefab.transform.Rotate(0, 0, -28);
+            prefab.transform.Rotate(0, 0, -rotation);
             UnityEngine.Debug.Log("Track 1");
         }
         else if (note == note2)
@@ -124,7 +125,7 @@ public class Note : MonoBehaviour
         else if (note == note3)
         {
             track = track3;
-            prefab.transform.Rotate(0, 0, 28);
+            prefab.transform.Rotate(0, 0, rotation);
             UnityEngine.Debug.Log("Track 3");
         }
     }

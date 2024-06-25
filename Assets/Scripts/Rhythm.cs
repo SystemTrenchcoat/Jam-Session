@@ -31,7 +31,7 @@ public class Rhythm : MonoBehaviour
             if (float.TryParse(text, out float t))
             {
                 bpm = t;
-                delay = bpm / 163.99f;
+                delay = bpm / 160;
                 Debug.Log(delay);
             }
             else if (text != null)
