@@ -24,7 +24,7 @@ public class Note : MonoBehaviour
     public static KeyCode note2key = KeyCode.A;
     public static KeyCode note3key = KeyCode.Space;
 
-    public int rotation = 26;
+    public static int rotation = 26;
 
     public char note;
     public float length;
