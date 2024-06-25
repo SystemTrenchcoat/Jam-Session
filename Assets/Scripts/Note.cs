@@ -49,7 +49,7 @@ public class Note : MonoBehaviour
         note = lines[0][0];
         length = float.Parse(lines[1]);
         time = float.Parse(lines[2]);
-        speed = bpm / 3600;
+        speed = bpm / 3600 / 2;
         UnityEngine.Debug.Log(speed);
     }
 
