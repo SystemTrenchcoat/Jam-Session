@@ -42,14 +42,14 @@ public class Note : MonoBehaviour
     /// Creates a new note
     /// </summary>
     /// <param name="info">Line from txt file</param>
-    public void GenerateNote(string info)//, int bpm)
+    public void GenerateNote(string info, float bpm)
     {
         string[] lines = info.Split(',');
 
         note = lines[0][0];
         length = float.Parse(lines[1]);
         time = float.Parse(lines[2]);
-        //speed = (float)(bpm / 360);
+        speed = bpm / 3600;
         UnityEngine.Debug.Log(speed);
     }
 
