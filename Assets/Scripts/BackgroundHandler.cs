@@ -23,12 +23,12 @@ public class BackgroundHandler
     {
           if(isDay) 
           {
-               spriteRenderer.Sprite = nightBackground;
+               spriteRenderer.sprite = nightBackground;
                isDay = !isDay;
           }
           else 
           {
-               spriteRenderer.Sprite = dayBackground;
+               spriteRenderer.sprite = dayBackground;
                isDay = !isDay;
           }
     }
