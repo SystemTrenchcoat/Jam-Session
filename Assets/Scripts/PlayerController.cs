@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-       /*
+       
         frames++;
         if(Input.GetAxis("Horizontal") > Input.GetAxis("Vertical") && frames >= 50)
         {
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         {
           count = 0;
         }
-       */
+       
     }
 
     private void FixedUpdate()
