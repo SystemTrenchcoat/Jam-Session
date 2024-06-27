@@ -23,7 +23,6 @@ public class NPCSpriteController : MonoBehaviour
     {
         if (frames == 50)
         {
-            FrameChange();
             frames = 0;
             spriterenderer.sprite = sprites[count];
             count++;
