@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackgroundHandler
+public class BackgroundHandler : MonoBehaviour
 {
    //public static event Action OnExitGame; -> in Rhythm.cs
 
