@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro; // Make sure you have TextMeshPro installed and imported
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public string[] dialogueLines;
     private int currentLine = 0;
-    private bool isDialogueActive = false;
+    [HideInInspector] public bool isDialogueActive = false;
 
     private void Start()
     {
@@ -42,6 +42,13 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
         }
+    }
+
+    public void ResetDialogue()
+    {
+        isDialogueActive = false;
+        dialogueBox.SetActive(false);
+        currentLine = 0;
     }
 
     private void EndDialogue()

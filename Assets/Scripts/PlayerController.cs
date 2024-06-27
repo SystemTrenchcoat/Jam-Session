@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     [SerializeField] private float movementSpeed = 2f;
     public int count = 0;
     private int frames = 0;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
