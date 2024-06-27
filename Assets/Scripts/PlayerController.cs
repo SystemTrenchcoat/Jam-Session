@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private int frames = 0;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
-    [SerializeField] private Sprite[] spriteHorizantal;
+    [SerializeField] private Sprite[] spriteHorizontal;
     [SerializeField] private Sprite[] spriteUp;
     [SerializeField] private Sprite[] spriteDown;
     [SerializeField] private Sprite[] spriteIdle;
@@ -26,22 +26,22 @@ public class PlayerController : MonoBehaviour
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
        
         frames++;
-        if(Input.GetAxis("Horizontal") > Input.GetAxis("Vertical") && frames >= 50)
+        if(Input.GetAxis("Horizontal") >= Input.GetAxis("Vertical") && frames >= 50)
         {
-            if(Input.GetAxis("Horizantal") > 0)
+            if(Input.GetAxis("Horizontal") > 0)
             {
-                spriterenderer.sprite = spriteHorizantal[count];
+                spriterenderer.sprite = spriteHorizontal[count];
                 spriterenderer.flipX = false;
             }
             else
             {
-                spriterenderer.sprite = spriteHorizantal[count];
+                spriterenderer.sprite = spriteHorizontal[count];
                 spriterenderer.flipX = true;
             }
             count++;
             frames = 0;
         }
-        else if (Input.GetAxis("Vertical") > Input.GetAxis("Horizantal") && frames >= 50)
+        else if (Input.GetAxis("Vertical") >= Input.GetAxis("Horizontal") && frames >= 50)
         {
               spriterenderer.flipX = false;
               if(Input.GetAxis("Vertical") > 0)
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
               count++;
               frames = 0;
         }
-        else
+        else if(frames >= 50)
         {
             spriterenderer.sprite = spriteIdle[count];
             frames = 0;
