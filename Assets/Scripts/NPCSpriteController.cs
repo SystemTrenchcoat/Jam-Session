@@ -20,5 +20,9 @@ public class NPCSpriteController : MonoBehaviour
     {
         spriterenderer.sprite = sprites[count];
         count++;
+        if (sprites[count + 1] != null)
+        {
+            count = 0;
+        }
     }
 }
