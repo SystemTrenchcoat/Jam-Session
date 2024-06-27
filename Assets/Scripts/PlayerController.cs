@@ -26,22 +26,24 @@ public class PlayerController : MonoBehaviour
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
        
         frames++;
-        if(Input.GetAxis("Horizontal") >= Input.GetAxis("Vertical") && frames >= 50)
+        if (Input.GetAxis("Horizontal") != 0 && frames >= 50)
         {
             if(Input.GetAxis("Horizontal") > 0)
             {
-                spriterenderer.sprite = spriteHorizontal[count];
                 spriterenderer.flipX = false;
+                spriterenderer.sprite = spriteHorizontal[count];
+                
             }
             else
             {
-                spriterenderer.sprite = spriteHorizontal[count];
                 spriterenderer.flipX = true;
+                spriterenderer.sprite = spriteHorizontal[count];
+                
             }
             count++;
             frames = 0;
         }
-        else if (Input.GetAxis("Vertical") >= Input.GetAxis("Horizontal") && frames >= 50)
+        else if (Input.GetAxis("Vertical") != 0 && frames >= 50)
         {
               spriterenderer.flipX = false;
               if(Input.GetAxis("Vertical") > 0)
