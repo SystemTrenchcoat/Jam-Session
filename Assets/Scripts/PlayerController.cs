@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     //public int count = 0;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
+    [SerializeField] private Sprite[] sprite;
+    private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {

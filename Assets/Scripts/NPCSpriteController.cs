@@ -7,22 +7,33 @@ public class NPCSpriteController : MonoBehaviour
 {
 
     [SerializeField] public Sprite[] sprites;
-    public int count;
+    private int count;
+    private int frames;
     private SpriteRenderer spriterenderer;
 
 
-    private void Start()
+    void Start()
     {
         count = 0;
+        frames = 0;
+        spriterenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    void Update()
     {
-        spriterenderer.sprite = sprites[count];
-        count++;
-        if (sprites[count++] == null)
+        if (frames == 50)
         {
-            count = 0;
+            FrameChange();
+            frames = 0;
+            spriterenderer.sprite = sprites[count];
+            count++;
+
+            if (count >= sprites.Length)
+            {
+                count = 0;
+            }
         }
+        frames++;
     }
+
 }
