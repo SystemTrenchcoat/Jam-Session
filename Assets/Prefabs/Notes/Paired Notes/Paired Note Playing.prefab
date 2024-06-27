@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8876008499022930974, guid: 78c9cc0c57bc92b4ca91c1ae047eb948, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 7752608239020757558}
     - target: {fileID: 4568406527859268109, guid: 78c9cc0c57bc92b4ca91c1ae047eb948, type: 3}
       propertyPath: m_Name
       value: Paired Note Playing
@@ -69,3 +73,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c9cc0c57bc92b4ca91c1ae047eb948, type: 3}
+--- !u!1 &7752608239020757558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4568406527859268109, guid: 78c9cc0c57bc92b4ca91c1ae047eb948, type: 3}
+  m_PrefabInstance: {fileID: 6120657520466446395}
+  m_PrefabAsset: {fileID: 0}

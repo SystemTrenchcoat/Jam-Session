@@ -17,7 +17,7 @@ public class BackgroundHandler
    
    private void Start()
    {
-      Rhythm.OnExitGame += SetBackground();
+      //Rhythm.OnExitGame += SetBackground();
    }
     private void SetBackground() 
     {

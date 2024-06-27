@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Unity.VisualScripting;
+using UnityEditor.TerrainTools;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Creates the notes that in the jam session
@@ -16,6 +18,7 @@ public class Rhythm : MonoBehaviour
 
     public AudioSource audio;
     public List<GameObject> song;
+    public float bpm;
     public float delay;
     public float timer = 0.06f;
     public int noteCount = 0;
@@ -23,7 +26,6 @@ public class Rhythm : MonoBehaviour
     {
         StreamReader sr = new StreamReader(path);
         string text;
-        float bpm = 60;
 
         do
         {
@@ -63,7 +65,7 @@ public class Rhythm : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         song = new List<GameObject>();
-        ImportSong("Assets/Text/Reggae.txt");
+        ImportSong("Assets/Text/Jam 1.txt");
         //delay = 2;
         Debug.Log(song.Count);
     }
@@ -76,6 +78,15 @@ public class Rhythm : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (song[0].GetComponent<Note>().time >= delay && !audio.isPlaying)
+        {
+            audio.Play();
+            foreach (GameObject note in song)
+            {
+                note.GetComponent<Note>().time -= delay * (bpm / 100);
+            }
+        }
+
         if (noteCount < song.Count && timer >= song[noteCount].GetComponent<Note>().time)
         {
             if (timer >= delay + song[0].GetComponent<Note>().time && !audio.isPlaying)
@@ -85,6 +96,11 @@ public class Rhythm : MonoBehaviour
             song[noteCount].SetActive(true);
             Debug.Log(song[noteCount].GetComponent<Note>().note + " " + song[noteCount].GetComponent<Note>().time);
             noteCount++;
+        }
+
+        if (audio.time < timer && noteCount >= song.Count)
+        {
+            SceneManager.LoadScene("WalkTestScene");
         }
 
         timer += Time.deltaTime;

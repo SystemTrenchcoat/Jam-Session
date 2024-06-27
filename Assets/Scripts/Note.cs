@@ -34,16 +34,6 @@ public class Note : MonoBehaviour
 
     public GameObject prefab;
 
-    public Note(char note, float time)
-    {
-        this.note = note;
-        this.time = time;
-    }
-
-    /// <summary>
-    /// Creates a new note
-    /// </summary>
-    /// <param name="info">Line from txt file</param>
     public void GenerateNote(string info, float bpm)
     {
         string[] lines = info.Split(',');
@@ -55,31 +45,9 @@ public class Note : MonoBehaviour
         UnityEngine.Debug.Log(speed);
     }
 
-    public static Note findLastNote(List<Note> notes, char note)
-    {
-        Note n = null;
-
-        for (int i = notes.Count - 1; i >= 0; i--)
-        {
-            if (notes[i].note == note)
-            {
-                n = notes[i];
-                break;
-            }
-        }
-
-        return n;
-    }
-
     public override string ToString()
     {
         return note + "," + length + "," + time;
-    }
-
-    public void setLength(float length)
-    {
-        this.length = length;
-        setPrefab();
     }
 
     public void setSpeed(float speed)
@@ -135,5 +103,15 @@ public class Note : MonoBehaviour
     {
         transform.Translate(speed * track);
         //UnityEngine.Debug.Log(speed * track);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //if (collision.tag == "Ring")
+        //{
+        //GetComponent<SpriteRenderer>().color = Color.blue;
+        //Destroy(gameObject);
+        UnityEngine.Debug.Log("col");
+        //}
     }
 }
