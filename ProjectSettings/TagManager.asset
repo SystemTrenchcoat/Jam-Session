@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sprites
+    uniqueID: 2971140659
+    locked: 0
+  - name: Player
+    uniqueID: 3153601011
+    locked: 0
+  - name: Dialog
+    uniqueID: 2835538397
+    locked: 0
