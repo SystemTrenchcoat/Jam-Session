@@ -5,77 +5,31 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 2f;
-    public int count = 0;
-    private int frames = 0;
     private Rigidbody2D rb;
     private Vector2 movementDirection;
-    [SerializeField] private Sprite[] spriteHorizontal;
-    [SerializeField] private Sprite[] spriteUp;
-    [SerializeField] private Sprite[] spriteDown;
-    [SerializeField] private Sprite[] spriteIdle;
     private SpriteRenderer spriterenderer;
+    private Animator animationController;
+    private int speed;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriterenderer = GetComponent<SpriteRenderer>();
+        spriterenderer = GetComponent<SpriteRenderer>(); 
+        animationController = GetComponent<Animator>();
     }
 
     void Update()
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-       
-        frames++;
-        if (Input.GetAxis("Horizontal") != 0 && frames >= 50)
-        {
-            if(Input.GetAxis("Horizontal") > 0)
-            {
-                spriterenderer.flipX = false;
-                spriterenderer.sprite = spriteHorizontal[count];
-                
-            }
-            else
-            {
-                spriterenderer.flipX = true;
-                spriterenderer.sprite = spriteHorizontal[count];
-                
-            }
-            count++;
-            frames = 0;
-        }
-        else if (Input.GetAxis("Vertical") != 0 && frames >= 50)
-        {
-              spriterenderer.flipX = false;
-              if(Input.GetAxis("Vertical") > 0)
-              {
-                  spriterenderer.sprite = spriteUp[count];
-              }
-              else
-              {
-                  spriterenderer.sprite = spriteDown[count];
-              }
-              count++;
-              frames = 0;
-        }
-        else if(frames >= 50)
-        {
-            spriterenderer.sprite = spriteIdle[count];
-            frames = 0;
-            if (count >= 3)
-            {
-                count = 0;
-            }
-            else
-            {
-                count++;
-            }
-        }
 
-        if(count >= 4)
-        {
-          count = 0;
-        }
-       
+        if(Input.GetAxis("Horizontal") < 0) 
+            spriterenderer.flipX = true;
+    
+        else
+            spriterenderer.flipX = false;
+
+        animationController.SetFloat("PosX", Input.GetAxisRaw("Horizontal"));
+        animationController.SetFloat("PoxY", Input.GetAxisRaw("Vertical"));
     }
 
     private void FixedUpdate()
