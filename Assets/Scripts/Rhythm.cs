@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Unity.VisualScripting;
-using UnityEditor.TerrainTools;
 using UnityEngine.SceneManagement;
-using UnityEditor.Experimental.GraphView;
 
 /// <summary>
 /// Creates the notes that in the jam session
