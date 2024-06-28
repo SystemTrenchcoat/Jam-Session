@@ -112,7 +112,7 @@ public class Rhythm : MonoBehaviour
             noteCount++;
         }
 
-        if (lastNote != null && lastNote.GetComponent<Note>().length >= 1.2f && song[noteCount].GetComponent<Transform>().localScale != new
+        if (lastNote != null && lastNote.GetComponent<Note>().length >= 1.2f && lastNote.GetComponent<Transform>().localScale != new
             Vector3(lastNote.GetComponent<Note>().length / lastNote.GetComponent<Note>().speed, 2, 1))
         {
             Debug.Log(lastNote.GetComponent<Note>().length * lastNote.GetComponent<Note>().speed);
