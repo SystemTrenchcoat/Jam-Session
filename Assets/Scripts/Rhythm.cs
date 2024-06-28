@@ -5,6 +5,7 @@ using System.IO;
 using Unity.VisualScripting;
 using UnityEditor.TerrainTools;
 using UnityEngine.SceneManagement;
+using UnityEditor.Experimental.GraphView;
 
 /// <summary>
 /// Creates the notes that in the jam session
@@ -21,7 +22,10 @@ public class Rhythm : MonoBehaviour
     public float bpm;
     public float delay;
     public float timer = 0.06f;
+    public float firstNoteTime = 0;
     public int noteCount = 0;
+    public GameObject lastNote;
+
     public void ImportSong(string path)
     {
         StreamReader sr = new StreamReader(path);
@@ -34,7 +38,7 @@ public class Rhythm : MonoBehaviour
             {
                 bpm = t;
                 delay = bpm / 160;
-                Debug.Log(delay);
+                //Debug.Log(delay);
             }
             else if (text != null)
             {
@@ -52,12 +56,14 @@ public class Rhythm : MonoBehaviour
                 song.Add(GameObject.Instantiate(note));
                 note.GetComponent<Note>().prefab = note;
                 song[song.Count - 1].SetActive(false);
-                Debug.Log(note.GetComponent<Note>().ToString() + " " + song.Count);
+                //Debug.Log(note.GetComponent<Note>().ToString() + " " + song.Count);
             }
-            Debug.Log(text);
+            //Debug.Log(text);
         } while (text != null);
         sr.Close();
-        Debug.Log(song[0].GetComponent<Note>().ToString());
+
+        firstNoteTime = song[0].GetComponent<Note>().time;
+        //Debug.Log(song[0].GetComponent<Note>().ToString());
     }
 
     // Start is called before the first frame update
@@ -78,7 +84,7 @@ public class Rhythm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (song[0].GetComponent<Note>().time >= delay && !audio.isPlaying)
+        if (firstNoteTime >= delay && !audio.isPlaying)
         {
             audio.Play();
             foreach (GameObject note in song)
@@ -89,13 +95,32 @@ public class Rhythm : MonoBehaviour
 
         if (noteCount < song.Count && timer >= song[noteCount].GetComponent<Note>().time)
         {
-            if (timer >= delay + song[0].GetComponent<Note>().time && !audio.isPlaying)
+            if (timer >= delay + firstNoteTime && !audio.isPlaying)
             {
                 audio.Play();
             }
             song[noteCount].SetActive(true);
-            Debug.Log(song[noteCount].GetComponent<Note>().note + " " + song[noteCount].GetComponent<Note>().time);
+            //Debug.Log(song[noteCount].GetComponent<Note>().note + " " + song[noteCount].GetComponent<Note>().time);
+            if (song[noteCount].GetComponent<Note>().length >= 1.2f)
+            {
+                //Debug.Log("Long");
+                //song[noteCount].GetComponent<Transform>().localScale = new
+                //    Vector3(song[noteCount].GetComponent<Note>().length * song[noteCount].GetComponent<Note>().speed * 1000, 2, 1);
+                song[noteCount].GetComponent<Transform>().localScale = new Vector3(song[noteCount].GetComponent<Transform>().localScale.x +
+                    (song[noteCount].GetComponent<Note>().length * song[noteCount].GetComponent<Note>().speed), 2, 1);
+                lastNote = song[noteCount];
+                //lastNote.GetComponent<Note>().speed = 0;
+            }
             noteCount++;
+        }
+
+        if (lastNote != null && lastNote.GetComponent<Note>().length >= 1.2f && song[noteCount].GetComponent<Transform>().localScale != new
+            Vector3(lastNote.GetComponent<Note>().length / lastNote.GetComponent<Note>().speed, 2, 1))
+        {
+            Debug.Log(lastNote.GetComponent<Note>().length * lastNote.GetComponent<Note>().speed);
+            lastNote.GetComponent<Transform>().localScale = new Vector3(lastNote.GetComponent<Transform>().localScale.x +
+                    (lastNote.GetComponent<Note>().length * lastNote.GetComponent<Note>().speed), 2, 1);
+
         }
 
         if (audio.time < timer && noteCount >= song.Count)

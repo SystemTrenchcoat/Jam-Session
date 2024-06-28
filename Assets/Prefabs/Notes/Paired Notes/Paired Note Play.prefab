@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paired Note Play
       objectReference: {fileID: 0}
+    - target: {fileID: 5781908771865712187, guid: 78c9cc0c57bc92b4ca91c1ae047eb948, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6101248617587109278, guid: 78c9cc0c57bc92b4ca91c1ae047eb948, type: 3}
       propertyPath: m_FlipX
       value: 0

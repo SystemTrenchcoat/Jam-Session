@@ -386,38 +386,6 @@ MonoBehaviour:
   timer1: 0
   timer2: 0
   timer3: 0
---- !u!1 &687786166 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 910214986207861476, guid: 8c7032056d8c6d44c856ebfdb018cf2a, type: 3}
-  m_PrefabInstance: {fileID: 6999753313830559899}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &687786171
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687786166}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &1015693370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -647,6 +615,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7975450163582888042, guid: df41e129caa922749af0fe75ce90d9ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -864,6 +836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Ring
       objectReference: {fileID: 0}
+    - target: {fileID: 1386811278755852325, guid: a403fa066813f05418e256cee231c9a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3551596648756802586, guid: a403fa066813f05418e256cee231c9a9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -889,7 +865,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 358053751862628885, guid: 8c7032056d8c6d44c856ebfdb018cf2a, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 910214986207861476, guid: 8c7032056d8c6d44c856ebfdb018cf2a, type: 3}
       propertyPath: m_Name
@@ -954,10 +930,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 910214986207861476, guid: 8c7032056d8c6d44c856ebfdb018cf2a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 687786171}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7032056d8c6d44c856ebfdb018cf2a, type: 3}
 --- !u!1001 &7437445269916764008
 PrefabInstance:

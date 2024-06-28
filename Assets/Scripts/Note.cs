@@ -26,6 +26,7 @@ public class Note : MonoBehaviour
 
     public static int rotation = 26;
 
+    public bool stop = false;
     public char note;
     public float length;
     public float time;
@@ -42,7 +43,7 @@ public class Note : MonoBehaviour
         length = float.Parse(lines[1]);
         time = float.Parse(lines[2]);
         speed = bpm / 3600 / 2;
-        UnityEngine.Debug.Log(speed);
+        //UnityEngine.Debug.Log(speed);
     }
 
     public override string ToString()
@@ -82,36 +83,27 @@ public class Note : MonoBehaviour
         {
             track = track1;
             prefab.transform.Rotate(0, 0, -rotation);
-            UnityEngine.Debug.Log("Track 1");
+            //UnityEngine.Debug.Log("Track 1");
         }
         else if (note == note2)
         {
             track = track2;
             prefab.transform.Rotate(0, 0, 0);
-            UnityEngine.Debug.Log("Track 2");
+            //UnityEngine.Debug.Log("Track 2");
         }
         else if (note == note3)
         {
             track = track3;
             prefab.transform.Rotate(0, 0, rotation);
-            UnityEngine.Debug.Log("Track 3");
+           //UnityEngine.Debug.Log("Track 3");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * track);
+        if (!stop)
+            transform.Translate(speed * track);
         //UnityEngine.Debug.Log(speed * track);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.tag == "Ring")
-        //{
-        //GetComponent<SpriteRenderer>().color = Color.blue;
-        //Destroy(gameObject);
-        UnityEngine.Debug.Log("col");
-        //}
     }
 }

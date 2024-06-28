@@ -11,12 +11,12 @@ public class NPCSpriteController : MonoBehaviour
     private SpriteRenderer spriterenderer;
 
 
-    private void Start()
+    void Start()
     {
         count = 0;
     }
 
-    private void Update()
+    void Update()
     {
         spriterenderer.sprite = sprites[count];
         count++;
