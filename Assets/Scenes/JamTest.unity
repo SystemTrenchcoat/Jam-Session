@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 663517720}
   - component: {fileID: 663517723}
   - component: {fileID: 663517722}
+  - component: {fileID: 663517724}
   m_Layer: 0
   m_Name: Rhythm Visualizer
   m_TagString: Rhyth Visualizer
@@ -388,6 +389,19 @@ MonoBehaviour:
   timer1: 0
   timer2: 0
   timer3: 0
+--- !u!114 &663517724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663517719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d607c9a264d1fa54284cb23d5e95aa77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: ac9754d4ad39c1c46a30754e731149a7, type: 3}
 --- !u!1001 &1015693370
 PrefabInstance:
   m_ObjectHideFlags: 0
