@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
             {
                 spriterenderer.flipX = false;
                 spriterenderer.sprite = spriteHorizontal[count];
-                
+                spriterenderer.scaleX
             }
             else
             {
