@@ -11,8 +11,11 @@ public class BackgroundHandler : MonoBehaviour
      if more are gonna be added in the future*/ 
    [SerializeField] private Sprite dayBackground;
    [SerializeField] private Sprite nightBackground;
+   [SerializeField] private AudioClip dayClip;
+   [SerializeField] private AudioClip nightClip;
    private bool isDay;
    private SpriteRenderer spriteRenderer;
+    private AudioSource audio;
 
    
    private void Start()
@@ -23,13 +26,15 @@ public class BackgroundHandler : MonoBehaviour
     {
           if(isDay) 
           {
-               spriteRenderer.sprite = nightBackground;
-               isDay = !isDay;
+                spriteRenderer.sprite = nightBackground;
+                audio.clip = nightClip;
+                isDay = !isDay;
           }
           else 
           {
-               spriteRenderer.sprite = dayBackground;
-               isDay = !isDay;
+                spriteRenderer.sprite = dayBackground;
+                audio.clip = dayClip;
+                isDay = !isDay;
           }
     }
 }

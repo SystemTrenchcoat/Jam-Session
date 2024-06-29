@@ -123,7 +123,7 @@ public class Rhythm : MonoBehaviour
 
         if (audio.time < timer && noteCount >= song.Count)
         {
-            SceneManager.LoadScene("WalkTestScene");
+            SceneManager.LoadScene("Overworld");
         }
 
         timer += Time.deltaTime;
