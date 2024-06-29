@@ -268,7 +268,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.077011
+  orthographic size: 7.260682
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -858,6 +858,7 @@ MonoBehaviour:
   - I'm here to make some beats
   - Ready for a show!
   - Let's see who you do.
+  isDialogueActive: 0
 --- !u!4 &1584784975
 Transform:
   m_ObjectHideFlags: 0
@@ -1075,6 +1076,7 @@ GameObject:
   - component: {fileID: 1899538702}
   - component: {fileID: 1899538701}
   - component: {fileID: 1899538703}
+  - component: {fileID: 1899538706}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1167,27 +1169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  count: 0
-  spriteHorizantal:
-  - {fileID: 21300000, guid: 83d468a288f2e4f4cb1ac902231eecce, type: 3}
-  - {fileID: 21300000, guid: d192e05f9fc6a2f438434896b95b48a0, type: 3}
-  - {fileID: 21300000, guid: f22dba36b660c0e4e96a5e2f3ceaf949, type: 3}
-  - {fileID: 21300000, guid: 60f1a998ec262f54b96fcc22de227f49, type: 3}
-  spriteUp:
-  - {fileID: 21300000, guid: b07411726446d3b4fbfb1bf1d344f8b5, type: 3}
-  - {fileID: 21300000, guid: cab6b4e804bf157458504342cbf01e16, type: 3}
-  - {fileID: 21300000, guid: 302a874ffbdfa0a4c8cf8b60daf34c52, type: 3}
-  - {fileID: 21300000, guid: a7fe817a0ad74d24a8cbdbfc76b8f847, type: 3}
-  spriteDown:
-  - {fileID: 21300000, guid: b35a1dce898a2934fa5c4c26ec03e76c, type: 3}
-  - {fileID: 21300000, guid: a3a0d76802e85fe41bb6681cc93e94d6, type: 3}
-  - {fileID: 21300000, guid: a3a0d76802e85fe41bb6681cc93e94d6, type: 3}
-  - {fileID: 21300000, guid: 5a07412c456533f4a9d2104f5c95f8f1, type: 3}
-  spriteIdle:
-  - {fileID: 21300000, guid: ce30b3f2717b6b84c94be6f208e18e2b, type: 3}
-  - {fileID: 21300000, guid: 4263ec8a4c8f4e540bd181b305162ed8, type: 3}
-  - {fileID: 21300000, guid: 08bdc1b68d9ac2e47821eb8d7f30a32f, type: 3}
-  - {fileID: 21300000, guid: a0cf37be4e795fd4693f8214844ff079, type: 3}
 --- !u!212 &1899538704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1255,6 +1236,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1899538706
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899538700}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1918608492
 GameObject:
   m_ObjectHideFlags: 0
