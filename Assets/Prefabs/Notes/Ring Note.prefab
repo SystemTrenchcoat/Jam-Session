@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 922507251772006788}
   m_Layer: 0
   m_Name: Ring Note
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -133,9 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58796c4930da9d4fb714562a8bf6c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stop: 0
   note: 65
   length: 0.2636597
   time: 59.69291
-  speed: 0.025
+  speed: 0.023611112
   track: {x: 0, y: 0}
   prefab: {fileID: 1123854528956871185}

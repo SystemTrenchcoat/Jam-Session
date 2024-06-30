@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4323000467409331880}
   m_Layer: 0
   m_Name: Held Note
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 910214986207861476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -133,9 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58796c4930da9d4fb714562a8bf6c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: 69
+  note: 95
   length: 3.983355
   time: 30.92393
-  speed: 0.01
+  speed: 0.025
   track: {x: 0, y: 0}
   prefab: {fileID: 910214986207861476}

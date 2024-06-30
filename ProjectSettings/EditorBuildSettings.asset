@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/JamTest.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Overworld.unity
+    guid: 66964450c628fec4a9b472eadbc03905
   - enabled: 1
-    path: Assets/Scenes/WalkTestScene.unity
+    path: Assets/Scenes/Test/JamTest.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/Test/WalkTestScene.unity
     guid: 1633bf86bb64e424287adde55c4f2a3b
   m_configObjects: {}
