@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEditor.PackageManager.UI;
 
 /// <summary>
 /// Creates the notes that in the jam session
@@ -85,6 +86,8 @@ public class Rhythm : MonoBehaviour
             }
         }
 
+        //delay = 0;
+
         if (noteCount < song.Count && timer >= song[noteCount].GetComponent<Note>().time)
         {
             if (timer >= delay + firstNoteTime && !audio.isPlaying)
@@ -93,7 +96,7 @@ public class Rhythm : MonoBehaviour
             }
             song[noteCount].SetActive(true);
             //Debug.Log(song[noteCount].GetComponent<Note>().note + " " + song[noteCount].GetComponent<Note>().time);
-            if (song[noteCount].GetComponent<Note>().length >= 1.2f)
+            if (song[noteCount].GetComponent<Note>().length >= .6f)
             {
                 //Debug.Log("Long");
                 //song[noteCount].GetComponent<Transform>().localScale = new
@@ -106,12 +109,13 @@ public class Rhythm : MonoBehaviour
             noteCount++;
         }
 
-        if (lastNote != null && lastNote.GetComponent<Note>().length >= 1.2f && lastNote.GetComponent<Transform>().localScale != new
+        if (lastNote != null && lastNote.GetComponent<Note>().length >= .6f && lastNote.GetComponent<Transform>().localScale != new
             Vector3(lastNote.GetComponent<Note>().length / lastNote.GetComponent<Note>().speed, 2, 1))
         {
             Debug.Log(lastNote.GetComponent<Note>().length * lastNote.GetComponent<Note>().speed);
             lastNote.GetComponent<Transform>().localScale = new Vector3(lastNote.GetComponent<Transform>().localScale.x +
                     (lastNote.GetComponent<Note>().length * lastNote.GetComponent<Note>().speed), 2, 1);
+            lastNote.GetComponent<Note>().length -= Time.deltaTime;
 
         }
 

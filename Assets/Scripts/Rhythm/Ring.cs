@@ -20,7 +20,7 @@ public class Ring : MonoBehaviour
             //Note 1
             if (collision.GetComponent<Note>().note == Note.note1)
             {
-                if (Input.GetKeyDown(Note.note1key) || Input.GetKey(Note.note1key))
+                if (Input.GetKeyDown(Note.note1key))
                 {
                     //Debug.Log("Play 1");
                     NoteDestroy(collision.gameObject, Note.note1key);
@@ -30,7 +30,7 @@ public class Ring : MonoBehaviour
             //Note 2
             if (collision.GetComponent<Note>().note == Note.note2)
             {
-                if (Input.GetKeyDown(Note.note2key) || Input.GetKey(Note.note2key))
+                if (Input.GetKeyDown(Note.note2key))
                 {
                     //Debug.Log("Play 2");
                     NoteDestroy(collision.gameObject, Note.note2key);
@@ -40,7 +40,7 @@ public class Ring : MonoBehaviour
             //Note 3
             if (collision.GetComponent<Note>().note == Note.note3)
             {
-                if (Input.GetKeyDown(Note.note3key) || Input.GetKey(Note.note3key))
+                if (Input.GetKeyDown(Note.note3key))
                 {
                     //Debug.Log("Play 3");
                     NoteDestroy(collision.gameObject, Note.note3key);
@@ -58,30 +58,45 @@ public class Ring : MonoBehaviour
             //Note 1
             if (collision.GetComponent<Note>().note == Note.note1)
             {
-                if (Input.GetKeyDown(Note.note1key) || Input.GetKey(Note.note1key))
+                if (Input.GetKeyDown(Note.note1key) || Input.GetKey(Note.note1key))// && collision.GetComponent<Note>().length >= .6f)
                 {
                     //Debug.Log("Play 1");
                     NoteDestroy(collision.gameObject, Note.note1key);
+                }
+
+                else
+                {
+                    collision.GetComponent<Note>().stop = false;
                 }
             }
 
             //Note 2
             if (collision.GetComponent<Note>().note == Note.note2)
             {
-                if (Input.GetKeyDown(Note.note2key) || Input.GetKey(Note.note2key))
+                if (Input.GetKeyDown(Note.note2key) || Input.GetKey(Note.note2key))// && collision.GetComponent<Note>().length >= .6f)
                 {
                     //Debug.Log("Play 2");
                     NoteDestroy(collision.gameObject, Note.note2key);
+                }
+
+                else
+                {
+                    collision.GetComponent<Note>().stop = false;
                 }
             }
 
             //Note 3
             if (collision.GetComponent<Note>().note == Note.note3)
             {
-                if (Input.GetKeyDown(Note.note3key) || Input.GetKey(Note.note3key))
+                if (Input.GetKeyDown(Note.note3key) || Input.GetKey(Note.note3key))// && collision.GetComponent<Note>().length >= .6f)
                 {
                     //Debug.Log("Play 3");
                     NoteDestroy(collision.gameObject, Note.note3key);
+                }
+
+                else
+                {
+                    collision.GetComponent<Note>().stop = false;
                 }
             }
         }
@@ -89,7 +104,7 @@ public class Ring : MonoBehaviour
 
     private void NoteDestroy(GameObject note, KeyCode key)
     {
-        if (note.GetComponent<Note>().length <= 1.2f)// && Input.GetKeyDown(key))
+        if (note.GetComponent<Note>().length < .6f)// && Input.GetKeyDown(key))
         {
             Destroy(note);
         }
