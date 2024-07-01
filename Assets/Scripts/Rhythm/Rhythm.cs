@@ -4,7 +4,6 @@ using UnityEngine;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
-using UnityEditor.PackageManager.UI;
 
 /// <summary>
 /// Creates the notes that in the jam session
@@ -128,7 +127,7 @@ public class Rhythm : MonoBehaviour
 
         }
 
-        if (audio.time < timer && noteCount >= song.Count)
+        if (audio.time < timer + delay + 5 && noteCount >= song.Count)
         {
             SceneManager.LoadScene("Overworld");
         }

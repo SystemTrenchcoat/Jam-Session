@@ -63,7 +63,7 @@ public class Note : MonoBehaviour
         }
         else if (note == note2)
         {
-            prefab.transform.Rotate(0, 0, 0);
+            prefab.transform.Rotate(0, 0, 3);
             track = track2;
         }
         else if (note == note3)
@@ -87,7 +87,7 @@ public class Note : MonoBehaviour
         else if (note == note2)
         {
             track = track2;
-            prefab.transform.Rotate(0, 0, 0);
+            prefab.transform.Rotate(0, 0, 3);
             //UnityEngine.Debug.Log("Track 2");
         }
         else if (note == note3)
