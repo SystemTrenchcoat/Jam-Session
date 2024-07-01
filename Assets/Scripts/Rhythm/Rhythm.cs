@@ -74,10 +74,9 @@ public class Rhythm : MonoBehaviour
         Debug.Log(song.Count);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape)) 
         {
             Screen.fullScreen = false;
         }
