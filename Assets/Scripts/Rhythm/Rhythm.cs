@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEditor.PackageManager.UI;
 
 /// <summary>
 /// Creates the notes that in the jam session
@@ -77,7 +78,10 @@ public class Rhythm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Screen.fullScreen = false;
+        }
     }
 
     private void FixedUpdate()
