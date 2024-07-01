@@ -75,6 +75,14 @@ public class Rhythm : MonoBehaviour
         Debug.Log(song.Count);
     }
 
+    void Update() 
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Screen.fullScreen = false;
+        }
+    }
+
     private void FixedUpdate()
     {
         if (firstNoteTime >= delay && !audio.isPlaying)
