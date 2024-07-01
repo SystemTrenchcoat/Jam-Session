@@ -74,12 +74,6 @@ public class Rhythm : MonoBehaviour
         Debug.Log(song.Count);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if (firstNoteTime >= delay && !audio.isPlaying)
