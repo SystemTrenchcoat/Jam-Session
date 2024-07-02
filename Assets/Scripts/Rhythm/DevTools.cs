@@ -138,7 +138,7 @@ public class DevTools : MonoBehaviour
 
     void WriteSongText()
     {
-        string path = "Assets/Text/" + songName + ".txt";
+        string path = Application.streamingAssetsPath + "/Text/" + songName + ".txt";
         StreamWriter sw = new StreamWriter(path);
 
         sw.WriteLine(bpm);
