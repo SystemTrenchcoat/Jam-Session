@@ -138,17 +138,29 @@ public class DevTools : MonoBehaviour
 
     void WriteSongText()
     {
-        string path = Application.streamingAssetsPath + "/Text/" + songName + ".txt";
-        StreamWriter sw = new StreamWriter(path);
+        string directoryPath = Path.Combine(Application.persistentDataPath, "Text");
+        string path = Path.Combine(directoryPath, songName + ".txt");
 
-        sw.WriteLine(bpm);
 
-        foreach (NoteInfo n in activeSong)
+         Directory.CreateDirectory(directoryPath);
+
+try{
+        using (StreamWriter sw = new StreamWriter(path)) 
         {
-            sw.WriteLine(n.ToString());
-        }
+                sw.WriteLine(bpm);
 
-        sw.Close();
+            foreach (NoteInfo n in activeSong)
+            {
+                sw.WriteLine(n.ToString());
+            }
+            
+            sw.Close();
+        }
+}
+    catch (System.Exception e)
+    {
+        Debug.LogError("Failed to write to this file: " + e.Message);
+    }
 
         Debug.Log(activeSong.Count);
         Debug.Log(path);
